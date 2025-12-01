@@ -4,8 +4,8 @@ nav_order: 1
 ---
 
 <!--
-This is the home page of the PALM-mbQTL documentation.
-Edit the text below to customize the landing page for your project.
+Home page of the PALM-mbQTL documentation.
+Adjust the text below to customize the landing page.
 -->
 
 # PALM-mbQTL
@@ -25,8 +25,10 @@ The method:
 1. Read the [Overview](overview.md) to understand the analysis workflow.
 2. Install the package and environment: see [Installation](installation.md).
 3. Follow the [Quick Start](quickstart.md) guide to run a minimal example.
-4. Dive into individual steps:
-   - [Step 0 – GRM Construction](step0.md)
+4. Learn how to prepare your phenotype data:
+   - [Step 0 – Merge abundance and covariates](step0_merge_pheno.md)
+5. Dive into the core model-fitting steps:
+   - [Step 0 – GRM Construction](step0_grm.md)
    - [Step 1 – Null Model Fitting](step1.md)
    - [Step 2 – Genome-wide Score Tests](step2.md)
 

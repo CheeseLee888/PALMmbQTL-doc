@@ -14,17 +14,21 @@ PALM-mbQTL provides a multi-step workflow for microbiome QTL mapping:
 
 1. **Prepare input data**
    - Genotype (GDS or PLINK)
-   - Phenotype (microbiome feature table + covariates)
+   - Microbiome abundance table
+   - Covariates (demographics, PCs, batch)
    - Optional GRM
 
-2. **Step 0 (optional but recommended)**  
-   Construct a genetic relationship matrix (GRM) from genotype data.
+2. **Step 0a – Merge abundance and covariates**  
+   Build a unified phenotype file with one row per sample.
 
-3. **Step 1**  
+3. **Step 0b – Construct a GRM (optional)**  
+   Generate a genetic relationship matrix from genotype data.
+
+4. **Step 1 – Fit the null model**  
    Fit a Poisson mixed null model for one microbiome feature.
 
-4. **Step 2**  
-   Use the fitted null model to compute genome-wide score statistics.
+5. **Step 2 – Score tests**  
+   Use the fitted null model to compute genome-wide association statistics.
 
 ## Model components
 
@@ -56,10 +60,20 @@ for every SNP and scales to large genotype matrices.
 
 You typically need:
 
-- **Phenotype file**
+- **Abundance (ABD) matrix**
+
+  - One row per sample (or per sample/timepoint).
+  - Columns for microbiome features (taxa, OTUs, genes).
+
+- **Covariate (COV) table**
 
   - One row per sample.
-  - Columns for sample ID, microbiome features, and covariates.
+  - Columns for demographics, PCs, batch, etc.
+
+- **Phenotype file**
+
+  - Result of merging ABD and COV.
+  - Contains sample ID, feature columns, and covariates.
 
 - **Genotype file**
 
@@ -70,12 +84,6 @@ You typically need:
 
   - RDS file containing a genetic relationship matrix and sample IDs.
   - The set and order of sample IDs must match the phenotype file.
-
-## Computational considerations
-
-- Step 0 (GRM) is run once per cohort / genotype matrix.
-- Step 1 is run once per microbiome feature and can be parallelized.
-- Step 2 is fast and can be parallelized by chromosome or variant blocks.
 
 Next steps:
 

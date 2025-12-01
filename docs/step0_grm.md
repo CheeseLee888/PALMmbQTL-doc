@@ -1,6 +1,6 @@
 ---
 title: Step 0 – GRM Construction
-nav_order: 5
+nav_order: 6
 ---
 
 <!--
@@ -8,11 +8,11 @@ Detailed documentation for GRM construction.
 You can adjust naming/arguments to match your actual script.
 -->
 
-# Step 0: Constructing a Genetic Relationship Matrix (GRM)
+# Step 0 (optional): Constructing a Genetic Relationship Matrix (GRM)
 
-Step 0 generates a genetic relationship matrix (GRM) from genotype data.
-This step is optional but recommended when individuals may be related
-or when population structure needs to be modeled.
+This step generates a genetic relationship matrix (GRM) from genotype data.
+It is optional but recommended when individuals may be related or when
+population structure needs to be modeled.
 
 ## Script location
 
